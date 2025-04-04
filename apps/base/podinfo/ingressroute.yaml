@@ -1,0 +1,17 @@
+# Example IngressRoute for podinfo
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: podinfo-ingressroute
+  namespace: podinfo
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`podinfo.lab.biodrone.xyz`)
+      kind: Rule
+      services:
+        - name: podinfo
+          port: 9898
+  tls:
+    secretName: podinfo-certificate

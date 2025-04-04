@@ -1,0 +1,13 @@
+# Example Certificate for podinfo
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: podinfo-certificate
+  namespace: podinfo
+spec:
+  secretName: podinfo-certificate
+  issuerRef:
+    name: cloudflare-clusterissuer
+    kind: ClusterIssuer
+  dnsNames:
+    - podinfo.lab.biodrone.xyz
