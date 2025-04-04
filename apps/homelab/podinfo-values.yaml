@@ -9,7 +9,5 @@ spec:
       version: ">=1.0.0"
   values:
     replicaCount: 3
-    service:
-      type: LoadBalancer
     redis:
       enabled: false
