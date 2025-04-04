@@ -17,21 +17,26 @@ spec:
               key: api-token
         selector:
           dnsZones:
+            - "stage.lab.biodrone.xyz"
+            - "*.stage.lab.biodrone.xyz"
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: cloudflare-clusterissuer-production
+spec:
+  acme:
+    email: josh@joshjacobs.net
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: letsencrypt-production-account-secret
+    solvers:
+      - dns01:
+          cloudflare:
+            apiTokenSecretRef:
+              name: cloudflare-api-token-secret
+              key: api-token
+        selector:
+          dnsZones:
             - "lab.biodrone.xyz"
-# ---
-# apiVersion: cert-manager.io/v1
-# kind: ClusterIssuer
-# metadata:
-#   name: cloudflare-clusterissuer-production
-# spec:
-#   acme:
-#     email: josh@joshjacobs.net
-#     server: https://acme-v02.api.letsencrypt.org/directory
-#     privateKeySecretRef:
-#       name: letsencrypt-production-account-secret
-#     solvers:
-#       - dns01:
-#           cloudflare:
-#             apiTokenSecretRef:
-#               name: cloudflare-api-token-secret
-#               key: api-token
+            - "*.lab.biodrone.xyz"
