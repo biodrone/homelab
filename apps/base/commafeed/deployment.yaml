@@ -15,7 +15,7 @@ spec:
   #       try: "0"
   #       policy-type: "app"
 
-  #   spec:
+    spec:
   #     securityContext:
   #       runAsUser: 1000
   #       runAsGroup: 3000
@@ -46,4 +46,4 @@ spec:
               cpu: 1000m
               memory: 256Mi
 
-      restartPolicy: Unless-Stopped
+      restartPolicy: Always
