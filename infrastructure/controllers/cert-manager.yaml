@@ -31,6 +31,7 @@ spec:
       interval: 12h
   values:
     installCRDs: true
+    replicaCount: 3
     extraArgs:
       - --dns01-recursive-nameservers=1.1.1.1:53,1.0.0.1:53,8.8.8.8:53,8.8.4.4:53
       - --dns01-recursive-nameservers-only=true
