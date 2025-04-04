@@ -7,6 +7,3 @@ patches:
   - path: podinfo-values.yaml
     target:
       kind: HelmRelease
-  - path: podinfo-autoscaler.yaml
-    target:
-      kind: HorizontalPodAutoscaler
