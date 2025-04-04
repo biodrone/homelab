@@ -17,7 +17,7 @@ spec:
               key: api-token
         selector:
           dnsZones:
-            - "biodrone.xyz"
+            - "lab.biodrone.xyz"
 ---
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
