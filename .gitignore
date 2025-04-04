@@ -1,3 +1,4 @@
 .vscode
 .trunk
 kube-vip-*
+*secret*
