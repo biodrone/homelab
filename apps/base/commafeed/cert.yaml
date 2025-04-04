@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: commafeed-certificate-production
+  namespace: commafeed
+spec:
+  secretName: commafeed-certificate-production
+  issuerRef:
+    name: cloudflare-clusterissuer-production
+    kind: ClusterIssuer
+  commonName: commafeed.lab.biodrone.xyz
+  dnsNames:
+    - commafeed.lab.biodrone.xyz
