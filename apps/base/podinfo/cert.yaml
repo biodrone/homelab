@@ -11,16 +11,16 @@ spec:
     kind: ClusterIssuer
   dnsNames:
     - podinfo.lab.biodrone.xyz
----
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: podinfo-certificate-production
-  namespace: podinfo
-spec:
-  secretName: podinfo-certificate-production
-  issuerRef:
-    name: cloudflare-clusterissuer-production
-    kind: ClusterIssuer
-  dnsNames:
-    - podinfo.lab.biodrone.xyz
+# ---
+# apiVersion: cert-manager.io/v1
+# kind: Certificate
+# metadata:
+#   name: podinfo-certificate-production
+#   namespace: podinfo
+# spec:
+#   secretName: podinfo-certificate-production
+#   issuerRef:
+#     name: cloudflare-clusterissuer-production
+#     kind: ClusterIssuer
+#   dnsNames:
+#     - podinfo.lab.biodrone.xyz
