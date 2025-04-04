@@ -28,7 +28,7 @@ spec:
     crds: Skip
   chart:
     spec:
-      chart: traefik/traefik
+      chart: traefik
       version: "*"
       sourceRef:
         kind: HelmRepository
@@ -51,7 +51,7 @@ spec:
   interval: 30m
   chart:
     spec:
-      chart: traefik/traefik-crds
+      chart: traefik-crds
       version: "*"
       sourceRef:
         kind: HelmRepository
