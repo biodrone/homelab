@@ -15,6 +15,9 @@ spec:
             apiTokenSecretRef:
               name: cloudflare-api-token-secret
               key: api-token
+        selector:
+          dnsZones:
+            - "biodrone.xyz"
 ---
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
