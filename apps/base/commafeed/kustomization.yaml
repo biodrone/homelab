@@ -4,3 +4,5 @@ resources:
   - namespace.yaml
   - networking.yaml
   - deployment.yaml
+  - cert.yaml
+  - ingressroute.yaml
