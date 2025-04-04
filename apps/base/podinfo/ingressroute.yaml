@@ -14,4 +14,4 @@ spec:
         - name: podinfo
           port: 9898
   tls:
-    secretName: podinfo-certificate
+    secretName: podinfo-certificate-staging
