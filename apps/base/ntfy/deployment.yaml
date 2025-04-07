@@ -32,7 +32,7 @@ spec:
           volumeMounts:
               - mountPath: /etc/ntfy
                 subPath: server.yml
-                name: config-volume # generated vie configMapGenerator from kustomization file
+                name: config-volume # generated via configMapGenerator from kustomization file
               - mountPath: /var/cache/ntfy
                 name: cache-volume #cache volume mounted to persistent volume
       volumes:
