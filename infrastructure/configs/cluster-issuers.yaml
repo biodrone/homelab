@@ -38,5 +38,7 @@ spec:
               key: api-token
         selector:
           dnsZones:
+            - "biodrone.xyz"
+            - "*.biodrone.xyz"
             - "lab.biodrone.xyz"
             - "*.lab.biodrone.xyz"
