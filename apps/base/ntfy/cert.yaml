@@ -10,4 +10,5 @@ spec:
     kind: ClusterIssuer
   commonName: ntfy.lab.biodrone.xyz
   dnsNames:
-    - ntfy.lab.biodrone.xyz 
+    - ntfy.lab.biodrone.xyz
+    - ntfy.biodrone.xyz
