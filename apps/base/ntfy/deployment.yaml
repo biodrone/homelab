@@ -19,15 +19,6 @@ spec:
         - name: ntfy 
           image: binwiederhier/ntfy:v1.28.0
           args: ["serve"]
-          env:
-            - name: TZ
-              value: Europe/London # Whilst I'm pro-UTC, sadly my timezone still observes DST
-            - name: NTFY_DEBUG
-              value: "false"
-            - name: NTFY_LOG_LEVEL
-              value: INFO
-            - name: NTFY_BASE_URL
-              value: https://ntfy.lab.biodrone.xyz
           ports: 
             - containerPort: 80
               name: http-ntfy

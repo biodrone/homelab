@@ -1,0 +1,6 @@
+cache-file: "/var/cache/ntfy/cache.db"
+attachment-cache-dir: "/var/cache/ntfy/attachments"
+tz: "Europe/London" # Whilst I'm pro-UTC, sadly my timezone still observes DST
+ntfy_debug: "false"
+ntfy_log_level: "INFO"
+ntfy_base_url: "https://ntfy.lab.biodrone.xyz"
