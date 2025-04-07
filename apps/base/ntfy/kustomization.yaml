@@ -11,4 +11,4 @@ resources:
 configMapGenerator:
     - name: server-config
       files: 
-        - server.yml 
+        - server.yml # required for ntfy to read config
