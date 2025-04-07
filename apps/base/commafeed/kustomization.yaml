@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: commafeed
 resources:
   - namespace.yaml
-  - networking.yaml
+  - svc.yaml
   - deployment.yaml
   - cert.yaml
   - ingressroute.yaml
