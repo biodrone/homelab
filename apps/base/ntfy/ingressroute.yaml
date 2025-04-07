@@ -1,0 +1,15 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ntfy-ingress
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`ntfy.lab.biodrone.xyz`)
+      kind: Rule
+      services:
+        - name: ntfy-svc
+          port: 80
+  tls:
+    secretName: ntfy-certificate-production

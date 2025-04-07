@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: ntfy-certificate-production
+  namespace: ntfy
+spec:
+  secretName: ntfy-certificate-production
+  issuerRef:
+    name: cloudflare-clusterissuer-production
+    kind: ClusterIssuer
+  commonName: ntfy.lab.biodrone.xyz
+  dnsNames:
+    - ntfy.lab.biodrone.xyz 
