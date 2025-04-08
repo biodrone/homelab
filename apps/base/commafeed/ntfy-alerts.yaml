@@ -5,7 +5,7 @@ metadata:
   namespace: commafeed
 spec:
   type: generic
-  address: https://ntfy.lab.biodrone.xyz/
+  address: https://ntfy.lab.biodrone.xyz/k3s
 ---
 apiVersion: notification.toolkit.fluxcd.io/v1beta3
 kind: Alert
