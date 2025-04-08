@@ -17,7 +17,7 @@ spec:
       retries: 3
   values:
     redis:
-      enabled: true
+      enabled: false
       repository: public.ecr.aws/docker/library/redis
       tag: 7.4.2
     ingress:
