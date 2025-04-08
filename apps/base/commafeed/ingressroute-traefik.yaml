@@ -10,7 +10,7 @@ spec:
     - match: Host(`commafeed.lab.biodrone.xyz`)
       kind: Rule
       services:
-        - name: commafeed
+        - name: commafeed-svc
           port: 8082
   tls:
     secretName: commafeed-certificate-production
