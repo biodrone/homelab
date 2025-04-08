@@ -8,4 +8,4 @@ resources:
   - cert.yaml
   - ingressroute-traefik.yaml
   - ingress-tailscale.yaml
-  - ntfy-alerts.yaml
+  - ntfy-alert.yaml
