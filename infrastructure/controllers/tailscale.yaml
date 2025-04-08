@@ -30,6 +30,5 @@ spec:
   install:
     remediation:
       retries: 3
-  namespace: tailscale
   # Helm Chart auto mounts the secret named tailscale-oauth in the tailscale namespace
   # https://github.com/tailscale/tailscale/blob/main/cmd/k8s-operator/deploy/chart/templates/deployment.yaml
