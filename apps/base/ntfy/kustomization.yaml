@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: ntfy
 resources:
   - namespace.yaml
-  - ingressroute.yaml
+  - ingressroute-traefik.yaml
   - cert.yaml
   - deployment.yaml
   - svc.yaml

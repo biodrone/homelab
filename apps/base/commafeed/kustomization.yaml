@@ -6,4 +6,4 @@ resources:
   - svc.yaml
   - deployment.yaml
   - cert.yaml
-  - ingressroute.yaml
+  - ingressroute-traefik.yaml

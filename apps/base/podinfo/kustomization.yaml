@@ -6,5 +6,5 @@ resources:
   - repository.yaml
   - release.yaml
   - cert.yaml
-  - ingressroute.yaml
-  - ingress.yaml
+  - ingressroute-traefik.yaml
+  - ingress-tailscale.yaml
