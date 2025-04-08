@@ -7,3 +7,4 @@ resources:
   - deployment.yaml
   - cert.yaml
   - ingressroute-traefik.yaml
+  - ingress-tailscale.yaml

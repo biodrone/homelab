@@ -4,6 +4,7 @@ namespace: ntfy
 resources:
   - namespace.yaml
   - ingressroute-traefik.yaml
+  - ingress-tailscale.yaml
   - cert.yaml
   - deployment.yaml
   - svc.yaml
