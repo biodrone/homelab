@@ -5,9 +5,7 @@ metadata:
   namespace: podinfo
 spec:
   type: generic
-  address: https://ntfy.lab.biodrone.xyz
-  secretRef:
-    name: ntfy-topic
+  address: https://ntfy.lab.biodrone.xyz/k3s
 ---
 apiVersion: notification.toolkit.fluxcd.io/v1beta3
 kind: Alert
@@ -32,12 +30,12 @@ spec:
       name: '*'
     - kind: ImageUpdateAutomation
       name: '*'
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: ntfy-topic
-  namespace: podinfo
-stringData:
-  headers: |
-    topic: k3s
+# ---
+# apiVersion: v1
+# kind: Secret
+# metadata:
+#   name: ntfy-topic
+#   namespace: podinfo
+# stringData:
+#   headers: |
+#     topic: k3s
