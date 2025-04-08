@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: podinfo
+  namespace: podinfo
+spec:
+  ingressClassName: tailscale
+  defaultBackend:
+    service:
+      name: podinfo
+      port:
+        number: 9898
+  tls:
+    - hosts:
+        - podinfo
