@@ -16,6 +16,8 @@ spec:
   summary: "Something happened with podinfo"
   providerRef:
     name: ntfy-bot
+  secretRef:
+    name: ntfy-topic
   eventSeverity: info
   eventSources:
     - kind: HelmRepository
