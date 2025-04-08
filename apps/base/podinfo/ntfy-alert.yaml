@@ -30,3 +30,12 @@ spec:
       name: '*'
     - kind: ImageUpdateAutomation
       name: '*'
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ntfy-topic
+  namespace: podinfo
+stringData:
+  headers: |
+    topic: k3s
