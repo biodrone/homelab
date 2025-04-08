@@ -1,0 +1,26 @@
+apiVersion: notification.toolkit.fluxcd.io/v1beta3
+kind: Provider
+metadata:
+  name: ntfy-bot
+  namespace: commafeed
+spec:
+  type: generic
+  address: https://ntfy.lab.biodrone.xyz/
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta3
+kind: Alert
+metadata:
+  name: ntfy
+  namespace: commafeed
+spec:
+  summary: "Something happened with commafeed"
+  providerRef:
+    name: ntfy-bot
+  eventSeverity: info
+  eventSources:
+    - kind: HelmRepository
+      name: '*'
+    - kind: HelmRelease
+      name: '*'
+    - kind: Kustomization
+      name: '*'
