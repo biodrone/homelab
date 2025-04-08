@@ -5,7 +5,9 @@ metadata:
   namespace: podinfo
 spec:
   type: generic
-  address: https://ntfy.lab.biodrone.xyz/k3s
+  address: https://ntfy.lab.biodrone.xyz
+  secretRef:
+    name: ntfy-topic
 ---
 apiVersion: notification.toolkit.fluxcd.io/v1beta3
 kind: Alert
@@ -16,8 +18,6 @@ spec:
   summary: "Something happened with podinfo"
   providerRef:
     name: ntfy-bot
-  secretRef:
-    name: ntfy-topic
   eventSeverity: info
   eventSources:
     - kind: HelmRepository
