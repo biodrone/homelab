@@ -7,3 +7,4 @@ resources:
   - release.yaml
   - cert.yaml
   - ingressroute.yaml
+  - ingress.yaml
