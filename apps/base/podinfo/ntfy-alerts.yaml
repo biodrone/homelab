@@ -1,0 +1,32 @@
+apiVersion: notification.toolkit.fluxcd.io/v1beta3
+kind: Provider
+metadata:
+  name: ntfy-bot
+  namespace: podinfo
+spec:
+  type: generic
+  address: https://ntfy.lab.biodrone.xyz/k3s
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta3
+kind: Alert
+metadata:
+  name: ntfy
+  namespace: podinfo
+spec:
+  summary: "Something happened with podinfo"
+  providerRef:
+    name: ntfy-bot
+  eventSeverity: info
+  eventSources:
+    - kind: HelmRepository
+      name: '*'
+    - kind: HelmRelease
+      name: '*'
+    - kind: Kustomization
+      name: '*'
+    - kind: ImageRepository
+      name: '*'
+    - kind: ImagePolicy
+      name: '*'
+    - kind: ImageUpdateAutomation
+      name: '*'
