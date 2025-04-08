@@ -13,7 +13,9 @@ metadata:
   name: ntfy
   namespace: podinfo
 spec:
-  summary: "Something happened with podinfo"
+  eventMetadata:
+    topic: k3s
+    summary: "Something happened with podinfo"
   providerRef:
     name: ntfy-bot
   eventSeverity: info
