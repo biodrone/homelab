@@ -1,0 +1,30 @@
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta3
+kind: Provider
+metadata:
+  name: discord
+  namespace: default
+spec:
+  type: discord
+  secretRef:
+    name: discord-webhook
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta3
+kind: Alert
+metadata:
+  name: discord
+  namespace: podinfo
+spec:
+  eventMetadata:
+    topic: k3s
+    summary: "Something happened with podinfo"
+  providerRef:
+    name: discord-bot
+  eventSeverity: info
+  eventSources:
+    - kind: HelmRepository
+      name: '*'
+    - kind: HelmRelease
+      name: '*'
+    - kind: Kustomization
+      name: '*'
