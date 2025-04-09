@@ -26,9 +26,3 @@ spec:
       name: '*'
     - kind: Kustomization
       name: '*'
-    - kind: ImageRepository
-      name: '*'
-    - kind: ImagePolicy
-      name: '*'
-    - kind: ImageUpdateAutomation
-      name: '*'
