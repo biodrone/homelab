@@ -14,7 +14,7 @@ spec:
   interval: 5m
   install:
     remediation:
-      retries: 6
+      retries: 3
   values:
     redis:
       enabled: false
