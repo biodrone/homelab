@@ -9,3 +9,4 @@ resources:
   - ingressroute-traefik.yaml
   - ingress-tailscale.yaml
   - ntfy-alert.yaml
+  - discord-alert.yaml
