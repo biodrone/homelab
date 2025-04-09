@@ -22,9 +22,19 @@ spec:
     name: discord-bot
   eventSeverity: info
   eventSources:
+    - kind: HelmChart
+      name: '*'
     - kind: HelmRepository
       name: '*'
     - kind: HelmRelease
       name: '*'
     - kind: Kustomization
+      name: '*'
+    - kind: ImageRepository
+      name: '*'
+    - kind: ImagePolicy
+      name: '*'
+    - kind: ImageUpdateAutomation
+      name: '*'
+    - kind: GitRepository
       name: '*'
