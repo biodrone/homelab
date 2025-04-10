@@ -5,7 +5,7 @@ metadata:
   name: podinfo-ingressroute
   namespace: podinfo
   annotations:
-    external-dns.alpha.kubernetes.io/target: podinfo.biodrone.xyz
+    external-dns.alpha.kubernetes.io/target: 10.0.10.21
     kubernetes.io/ingress.class: traefik
 spec:
   entryPoints:
