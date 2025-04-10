@@ -76,7 +76,7 @@ spec:
         - --policy=upsert-only
         - --provider=pihole
         - --pihole-api-version=6
-        - --pihole-server=https://pihole.home.biodrone.xyz
+        - --pihole-server=http://192.168.1.251
         - --traefik-disable-legacy
         resources:
           limits:
