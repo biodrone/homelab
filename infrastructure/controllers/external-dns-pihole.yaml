@@ -83,3 +83,42 @@ spec:
             cpu: "250m"
       securityContext:
         fsGroup: 65534 # For ExternalDNS to be able to read Kubernetes token files
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta3
+kind: Provider
+metadata:
+  name: discord-bot
+  namespace: external-dns
+spec:
+  type: discord
+  secretRef:
+    name: discord-webhook
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta3
+kind: Alert
+metadata:
+  name: discord-alert
+  namespace: external-dns
+spec:
+  eventMetadata:
+    summary: "Something happened with external-dns"
+  providerRef:
+    name: discord-bot
+  eventSeverity: info
+  eventSources:
+    - kind: HelmChart
+      name: '*'
+    - kind: HelmRepository
+      name: '*'
+    - kind: HelmRelease
+      name: '*'
+    - kind: Kustomization
+      name: '*'
+    - kind: ImageRepository
+      name: '*'
+    - kind: ImagePolicy
+      name: '*'
+    - kind: ImageUpdateAutomation
+      name: '*'
+    - kind: GitRepository
+      name: '*'
