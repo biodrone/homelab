@@ -6,6 +6,15 @@ GitOps Configuration and documentation of my homelab, powered by Kubernetes
 ### Infrastructure
 - KubeVIP (Loadbalancer) v0.8.9
 - FluxCD (GitOps) v2.5.1
+- Traefik (IngressRoute) v3.3.5
+- Traefik (CRDs) v1.6.0
+- Tailscale (Operator) v1.82.0
+- Cert-Manager (Certificates) v1.17.1
+
+## Applications
+- Podinfo (Testing App) v6.8.0
+- Ntfy (Notification Service) v2.11.0
+- Commafeed (RSS Feed Reader) v5.7.0
 
 ## Current Docker Services (To Be Migrated)
 
