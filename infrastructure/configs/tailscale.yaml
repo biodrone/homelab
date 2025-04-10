@@ -1,5 +1,5 @@
 # Currently only supported for egress
-#https://tailscale.com/kb/1236/kubernetes-operator#optional-pre-creating-a-proxygroup
+# https://tailscale.com/kb/1236/kubernetes-operator#optional-pre-creating-a-proxygroup
 apiVersion: tailscale.com/v1alpha1
 kind: ProxyGroup
 metadata:
