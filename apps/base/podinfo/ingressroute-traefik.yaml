@@ -4,6 +4,9 @@ kind: IngressRoute
 metadata:
   name: podinfo-ingressroute
   namespace: podinfo
+  annotations:
+    external-dns.io/hostname: podinfo.lab.biodrone.xyz
+    kubernetes.io/ingress.class: traefik
 spec:
   entryPoints:
     - websecure
