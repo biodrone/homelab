@@ -77,6 +77,7 @@ spec:
         - --provider=pihole
         - --pihole-api-version=6
         - --pihole-server=https://pihole.home.biodrone.xyz
+        - --traefik-disable-legacy
         resources:
           limits:
             memory: "128Mi"
