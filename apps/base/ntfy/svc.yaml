@@ -8,6 +8,6 @@ spec:
     app: ntfy-pod
   ports:
     - name: http-ntfy-out
-      protocol: TCP
       port: 80
-      targetPort:  http-ntfy
+      protocol: TCP
+      targetPort: http-ntfy
