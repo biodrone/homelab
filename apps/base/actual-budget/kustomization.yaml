@@ -8,3 +8,4 @@ resources:
   - cert.yaml
   - pvc.yaml
   - ingressroute-traefik.yaml
+  - ingress-tailscale.yaml
