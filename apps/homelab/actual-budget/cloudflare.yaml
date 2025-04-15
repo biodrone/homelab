@@ -65,7 +65,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: cloudflared
-  namespace: actual-budget
+  namespace: budget
 data:
   config.yaml: |
     tunnel: actual-budget
