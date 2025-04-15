@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: actual-budget-certificate-production
+  namespace: actual-budget
+spec:
+  secretName: actual-budget-certificate-production
+  issuerRef:
+    name: cloudflare-clusterissuer-production
+    kind: ClusterIssuer
+  commonName: budget.lab.biodrone.xyz
+  dnsNames:
+    - budget.lab.biodrone.xyz
