@@ -3,8 +3,11 @@ kind: Service
 metadata:
   name: actual-budget-svc
 spec:
-  ports:
-    - port: 5006
-  selector:
-    app: actual-budget-svc
   type: ClusterIP
+  selector:
+    app: actual-budget
+  ports:
+    - name: http-actual-budget-out
+      port: 5006
+      protocol: TCP
+      targetPort: http-actual-budget

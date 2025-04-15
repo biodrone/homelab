@@ -20,7 +20,7 @@ spec:
             allowPrivilegeEscalation: false
           ports:
             - containerPort: 5006
-              protocol: TCP
+              name: http-actual-budget
           resources:
             requests:
               cpu: 100m
