@@ -10,7 +10,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`budget.lab.biodrone.xyz`)
+    - match: Host(`budget.lab.biodrone.xyz`) || Host(`budget.biodrone.xyz`)
       kind: Rule
       services:
         - name: budget-svc
