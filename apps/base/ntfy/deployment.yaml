@@ -27,8 +27,8 @@ spec:
               memory: 300Mi
               cpu:  200m
             requests:
-                  cpu: 150m
-                  memory: 150Mi
+                cpu: 150m
+                memory: 150Mi
           volumeMounts:
               - mountPath: /etc/ntfy
                 subPath: server.yml
