@@ -73,7 +73,8 @@ data:
     metrics: 0.0.0.0:2000
     no-autoupdate: true
     ingress:
-    - hostname: budget.biodrone.xyz
-      service: http://actual-budget:5006
-
+    - hostname: budget1.biodrone.xyz
+      service: http://budget1-svc:5006
+    - hostname: budget2.biodrone.xyz
+      service: http://budget2-svc:5006
     - service: http_status:404

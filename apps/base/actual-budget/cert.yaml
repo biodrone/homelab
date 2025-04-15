@@ -1,13 +1,29 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: budget-certificate-production
+  name: budget1-certificate-production
   namespace: budget
 spec:
-  secretName: budget-certificate-production
+  secretName: budget1-certificate-production
   issuerRef:
     name: cloudflare-clusterissuer-production
     kind: ClusterIssuer
-  commonName: budget.lab.biodrone.xyz
+  commonName: budget1.biodrone.xyz
   dnsNames:
-    - budget.lab.biodrone.xyz
+    - budget1.biodrone.xyz
+    - budget1.lab.biodrone.xyz
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: budget2-certificate-production
+  namespace: budget
+spec:
+  secretName: budget2-certificate-production
+  issuerRef:
+    name: cloudflare-clusterissuer-production
+    kind: ClusterIssuer
+  commonName: budget2.biodrone.xyz
+  dnsNames:
+    - budget2.biodrone.xyz
+    - budget2.lab.biodrone.xyz

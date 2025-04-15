@@ -1,15 +1,31 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: budget-ingress
+  name: budget1-ingress
   namespace: budget
 spec:
   ingressClassName: tailscale
   defaultBackend:
     service:
-      name: budget-svc
+      name: budget1-svc
       port:
         number: 5006
   tls:
     - hosts:
-        - budget
+        - budget1
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: budget2-ingress
+  namespace: budget
+spec:
+  ingressClassName: tailscale
+  defaultBackend:
+    service:
+      name: budget2-svc
+      port:
+        number: 5006
+  tls:
+    - hosts:
+        - budget2

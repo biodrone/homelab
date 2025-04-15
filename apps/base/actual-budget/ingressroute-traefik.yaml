@@ -1,7 +1,7 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: budget-ingressroute
+  name: budget1-ingressroute
   namespace: budget
   annotations:
     external-dns.alpha.kubernetes.io/target: 10.0.10.21
@@ -10,10 +10,30 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`budget.lab.biodrone.xyz`) || Host(`budget.biodrone.xyz`)
+    - match: Host(`budget1.lab.biodrone.xyz`) || Host(`budget1.biodrone.xyz`)
       kind: Rule
       services:
-        - name: budget-svc
+        - name: budget1-svc
           port: 5006
   tls:
-    secretName: budget-certificate-production
+    secretName: budget1-certificate-production
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: budget2-ingressroute
+  namespace: budget
+  annotations:
+    external-dns.alpha.kubernetes.io/target: 10.0.10.21
+    kubernetes.io/ingress.class: traefik
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`budget2.lab.biodrone.xyz`) || Host(`budget2.biodrone.xyz`)
+      kind: Rule
+      services:
+        - name: budget2-svc
+          port: 5006
+  tls:
+    secretName: budget2-certificate-production

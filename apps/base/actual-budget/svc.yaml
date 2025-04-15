@@ -1,13 +1,27 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: budget-svc
+  name: budget1-svc
 spec:
   type: ClusterIP
   selector:
-    app: budget
+    app: budget1
   ports:
-    - name: http-budget-out
+    - name: http-budget1-out
       port: 5006
       protocol: TCP
-      targetPort: http-budget
+      targetPort: http-budget1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: budget2-svc
+spec:
+  type: ClusterIP
+  selector:
+    app: budget2
+  ports:
+    - name: http-budget2-out
+      port: 5006
+      protocol: TCP
+      targetPort: http-budget2

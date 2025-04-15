@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: budget
+  name: budget1
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: budget
+      app: budget1
 
   template:
     metadata:
       labels:
-        app: budget
+        app: budget1
     spec:
       containers:
-        - name: budget
+        - name: budget1
           image: actualbudget/actual-server:latest
           securityContext:
             allowPrivilegeEscalation: false
           ports:
             - containerPort: 5006
-              name: http-budget
+              name: http-budget1
           resources:
             requests:
               cpu: 100m
@@ -29,10 +29,49 @@ spec:
               cpu: 1000m
               memory: 256Mi
           volumeMounts:
-            - name: data-volume
+            - name: data-volume1
               mountPath: /data
       volumes:
-        - name: data-volume
+        - name: data-volume1
           persistentVolumeClaim:
-            claimName: budget-data
+            claimName: budget1-data
+      restartPolicy: Always
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: budget2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: budget2
+
+  template:
+    metadata:
+      labels:
+        app: budget2
+    spec:
+      containers:
+        - name: budget2
+          image: actualbudget/actual-server:latest
+          securityContext:
+            allowPrivilegeEscalation: false
+          ports:
+            - containerPort: 5006
+              name: http-budget2
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 1000m
+              memory: 256Mi
+          volumeMounts:
+            - name: data-volume2
+              mountPath: /data
+      volumes:
+        - name: data-volume2
+          persistentVolumeClaim:
+            claimName: budget2-data
       restartPolicy: Always
