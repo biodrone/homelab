@@ -1,10 +1,10 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: actual-budget-certificate-production
-  namespace: actual-budget
+  name: budget-certificate-production
+  namespace: budget
 spec:
-  secretName: actual-budget-certificate-production
+  secretName: budget-certificate-production
   issuerRef:
     name: cloudflare-clusterissuer-production
     kind: ClusterIssuer
