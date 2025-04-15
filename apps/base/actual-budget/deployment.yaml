@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: actual-budget
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: actual-budget
+
+  template:
+    metadata:
+      labels:
+        app: actual-budget
+    spec:
+      containers:
+        - name: actual-budget
+          image: actualbudget/actual-server:latest
+          securityContext:
+            allowPrivilegeEscalation: false
+          ports:
+            - containerPort: 5006
+              protocol: TCP
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 1000m
+              memory: 256Mi
+          volumeMounts:
+            - name: data-volume
+              mountPath: /data
+      volumes:
+        - name: data-volume
+          persistentVolumeClaim:
+            claimName: actual-budget-data
+      restartPolicy: Always
