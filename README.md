@@ -41,3 +41,6 @@ The following services are currently running in Docker and planned for migration
 - TrueNAS (Storage) [1 x RAIDZ2 | 8 wide | 7.28 TiB - 41.26 TiB Usable]
 - Proxmox (Virtualization) [1 x Minisforum NAB6]
 - Ubiquiti (Networking) [1 x UCG Ultra | 1 x U6 Lite | 1 x U6 Pro | 1 x AC Lite]
+
+## To Be Added
+- WorkLenz [https://github.com/worklenz/worklenz]
