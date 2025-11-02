@@ -30,7 +30,7 @@ spec:
         namespace: nfs-provisioner
       interval: 12h
   values:
-    replicaCount: 1  # Start with 1 replica - leader election has issues with API server timeouts
+    replicaCount: 2  # HA: Leader election ensures only one active provisioner, others are standby
     # Resource limits to ensure pod stability
     resources:
       limits:
