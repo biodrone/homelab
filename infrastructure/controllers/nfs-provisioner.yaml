@@ -61,7 +61,7 @@ spec:
       path: /mnt/tank/k8s-homelab
     storageClass:
       name: nfs-truenas
-      defaultClass: false
+      defaultClass: true
       allowVolumeExpansion: true
       reclaimPolicy: Delete
       # Mount options for resilience during NFS server reboots

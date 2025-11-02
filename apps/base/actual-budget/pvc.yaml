@@ -4,8 +4,8 @@ metadata:
   name: budget1-data
 spec:
   accessModes:
-    - ReadWriteOnce
-  storageClassName: local-path
+    - ReadWriteMany
+  storageClassName: nfs-truenas
   resources:
     requests:
       storage: 1Gi
@@ -16,8 +16,8 @@ metadata:
   name: budget2-data
 spec:
   accessModes:
-    - ReadWriteOnce
-  storageClassName: local-path
+    - ReadWriteMany
+  storageClassName: nfs-truenas
   resources:
     requests:
       storage: 1Gi
