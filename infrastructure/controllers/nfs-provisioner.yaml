@@ -30,6 +30,27 @@ spec:
         namespace: nfs-provisioner
       interval: 12h
   values:
+    replicaCount: 1  # Start with 1 replica - leader election has issues with API server timeouts
+    # Resource limits to ensure pod stability
+    resources:
+      limits:
+        cpu: 100m
+        memory: 128Mi
+      requests:
+        cpu: 50m
+        memory: 64Mi
+    # Prefer node1 (control plane) for better API server connectivity
+    # Using preferredDuringScheduling so it can fallback if node1 is unavailable
+    affinity:
+      nodeAffinity:
+        preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            preference:
+              matchExpressions:
+                - key: kubernetes.io/hostname
+                  operator: In
+                  values:
+                    - node1.lab.biodrone.xyz
     nfs:
       server: truenas.home.biodrone.xyz
       path: /mnt/tank/k8s-homelab
