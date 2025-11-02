@@ -13,6 +13,15 @@ spec:
       labels:
         app: commafeed
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: kubernetes.io/hostname
+                    operator: In
+                    values:
+                      - node1.lab.biodrone.xyz
       containers:
         - name: commafeed
           image: athou/commafeed:5.11.1-h2
@@ -36,4 +45,11 @@ spec:
             limits:
               cpu: 1000m
               memory: 256Mi
+          volumeMounts:
+            - name: data-volume
+              mountPath: /commafeed/data
+      volumes:
+        - name: data-volume
+          persistentVolumeClaim:
+            claimName: commafeed-data
       restartPolicy: Always

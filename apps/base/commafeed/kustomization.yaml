@@ -4,6 +4,7 @@ namespace: commafeed
 resources:
   - namespace.yaml
   - svc.yaml
+  - pvc.yaml
   - deployment.yaml
   - cert.yaml
   - ingressroute-traefik.yaml
