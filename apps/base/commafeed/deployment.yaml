@@ -19,9 +19,6 @@ spec:
           image: athou/commafeed:5.11.1-h2
           securityContext:
             allowPrivilegeEscalation: false
-          env:
-            - name: COMMAFEED_ALLOW_REGISTRATION
-              value: "true"
           # envFrom:
           #   - configMapRef:
           #       name: commafeed-configmap
