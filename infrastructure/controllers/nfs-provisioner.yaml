@@ -39,6 +39,11 @@ spec:
       requests:
         cpu: 50m
         memory: 64Mi
+    # Run as root to have permissions to create directories on NFS share
+    securityContext:
+      runAsUser: 0
+      runAsGroup: 0
+      fsGroup: 0
     # Prefer node1 (control plane) for better API server connectivity
     # Using preferredDuringScheduling so it can fallback if node1 is unavailable
     affinity:
