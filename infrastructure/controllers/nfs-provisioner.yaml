@@ -44,18 +44,6 @@ spec:
       runAsUser: 3000
       runAsGroup: 3000
       fsGroup: 3000
-    # Prefer node1 (control plane) for better API server connectivity
-    # Using preferredDuringScheduling so it can fallback if node1 is unavailable
-    affinity:
-      nodeAffinity:
-        preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 100
-            preference:
-              matchExpressions:
-                - key: kubernetes.io/hostname
-                  operator: In
-                  values:
-                    - node1.lab.biodrone.xyz
     nfs:
       server: 192.168.1.250
       path: /mnt/tank/k8s-homelab
@@ -72,7 +60,3 @@ spec:
         - retrans=2         # Number of retries before a "soft" error is reported
         - intr              # Allow interrupts during I/O (helps with hanging processes)
         - noatime           # Don't update access times (improves performance)
-      # Optional: add annotations
-      # annotations:
-      #   storageclass.kubernetes.io/is-default-class: "false"
-
