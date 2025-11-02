@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: budget1
-          image: actualbudget/actual-server:latest
+          image: actualbudget/actual-server:23.4.2
           securityContext:
             allowPrivilegeEscalation: false
           ports:
@@ -54,7 +54,7 @@ spec:
     spec:
       containers:
         - name: budget2
-          image: actualbudget/actual-server:latest
+          image: actualbudget/actual-server:23.4.2
           securityContext:
             allowPrivilegeEscalation: false
           ports:
