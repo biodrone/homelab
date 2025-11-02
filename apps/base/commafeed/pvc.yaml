@@ -4,8 +4,8 @@ metadata:
   name: commafeed-data
 spec:
   accessModes:
-    - ReadWriteOnce
-  storageClassName: local-path
+    - ReadWriteMany
+  storageClassName: nfs-truenas
   resources:
     requests:
       storage: 1Gi

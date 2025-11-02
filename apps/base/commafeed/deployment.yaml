@@ -13,15 +13,7 @@ spec:
       labels:
         app: commafeed
     spec:
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-              - matchExpressions:
-                  - key: kubernetes.io/hostname
-                    operator: In
-                    values:
-                      - node1.lab.biodrone.xyz
+      # Node affinity no longer needed - NFS storage can move with pods
       containers:
         - name: commafeed
           image: athou/commafeed:5.11.1-h2
