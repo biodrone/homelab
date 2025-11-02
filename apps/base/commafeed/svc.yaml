@@ -6,5 +6,5 @@ spec:
   ports:
     - port: 8082
   selector:
-    app: commafeed-svc
+    app: commafeed
   type: ClusterIP
