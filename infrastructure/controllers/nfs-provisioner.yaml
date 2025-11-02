@@ -52,7 +52,7 @@ spec:
                   values:
                     - node1.lab.biodrone.xyz
     nfs:
-      server: truenas.home.biodrone.xyz
+      server: 192.168.1.250
       path: /mnt/tank/k8s-homelab
     storageClass:
       name: nfs-truenas
