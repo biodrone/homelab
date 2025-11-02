@@ -5,3 +5,4 @@ resources:
   - traefik.yaml
   - tailscale.yaml
   - external-dns-pihole.yaml
+  - nfs-provisioner.yaml

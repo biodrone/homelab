@@ -51,6 +51,54 @@ The following services are currently running in Docker and planned for migration
 - Proxmox (Virtualization) [1 x Minisforum NAB6]
 - Ubiquiti (Networking) [1 x UCG Ultra | 1 x U6 Lite | 1 x U6 Pro | 1 x AC Lite]
 
+## NFS Storage Maintenance
+
+Several applications use persistent storage backed by TrueNAS NFS. When TrueNAS needs to be rebooted or undergo maintenance, pods using NFS volumes may hang or become unresponsive. Use the maintenance script to gracefully handle these situations.
+
+### Before TrueNAS Maintenance/Reboot
+
+Scale down all pods using NFS storage:
+
+```bash
+./scripts/nfs-maintenance.sh pre
+```
+
+This will:
+
+- Find all PVCs using the `nfs-truenas` storage class
+- Scale down all deployments using those PVCs to 0 replicas
+- Ensure no pods are accessing NFS when TrueNAS goes down
+
+### After TrueNAS Maintenance/Reboot
+
+Once TrueNAS is back online, scale pods back up:
+
+```bash
+./scripts/nfs-maintenance.sh post
+```
+
+This will:
+
+- Find all deployments that were scaled down
+- Scale them back up to their original replica counts
+- Show the status of pods using NFS storage
+
+### Check NFS Pod Status
+
+To check the current status of pods using NFS storage:
+
+```bash
+./scripts/nfs-maintenance.sh check
+```
+
+### What Happens During NFS Outages
+
+- **Brief outages (< 1 min)**: Pods may hang but usually reconnect automatically
+- **Medium outages (1-5 min)**: Some pods may need manual restart
+- **Long outages (> 5 min)**: Pods will likely need to be restarted
+
+The NFS mount options are configured with `hard` mounts and retry settings to prevent data corruption, but pods may hang during outages. Always use the maintenance script for planned TrueNAS maintenance.
+
 ## To Be Added
 
 - WorkLenz [https://github.com/worklenz/worklenz]
