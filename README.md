@@ -51,6 +51,23 @@ The following services are currently running in Docker and planned for migration
 - Proxmox (Virtualization) [1 x Minisforum NAB6]
 - Ubiquiti (Networking) [1 x UCG Ultra | 1 x U6 Lite | 1 x U6 Pro | 1 x AC Lite]
 
+## Storage
+
+The cluster uses **TrueNAS NFS** as the default storage class for persistent volumes. This provides centralized, network-attached storage that persists across pod restarts and node failures.
+
+### How It Works
+
+- **Storage Class**: `nfs-truenas` (default)
+- **Provisioner**: NFS Subdir External Provisioner dynamically creates persistent volumes
+- **Backend**: TrueNAS NFS share at `/mnt/tank/k8s-homelab`
+- **Benefits**:
+  - Pods can move between nodes without data loss
+  - Centralized storage on TrueNAS with RAIDZ2 protection
+  - Supports both `ReadWriteOnce` and `ReadWriteMany` access modes
+  - Automatic volume provisioning for PVCs
+
+When a PersistentVolumeClaim (PVC) is created without specifying a storage class, it automatically uses `nfs-truenas`. The provisioner creates a unique subdirectory on the TrueNAS NFS share for each PVC, ensuring data isolation between applications.
+
 ## NFS Storage Maintenance
 
 Several applications use persistent storage backed by TrueNAS NFS. When TrueNAS needs to be rebooted or undergo maintenance, pods using NFS volumes may hang or become unresponsive. Use the maintenance script to gracefully handle these situations.
