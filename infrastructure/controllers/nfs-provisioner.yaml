@@ -31,9 +31,8 @@ spec:
       interval: 12h
   values:
     nfs:
-      # TODO: Update with your TrueNAS NFS server details
-      server: truenas.lab.biodrone.xyz  # Change to your TrueNAS IP/hostname
-      path: /mnt/pool/k8s  # Change to your NFS share path
+      server: truenas.home.biodrone.xyz
+      path: /mnt/pool/k8s-homelab
     storageClass:
       name: nfs-truenas
       defaultClass: false
