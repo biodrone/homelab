@@ -32,7 +32,7 @@ spec:
   values:
     nfs:
       server: truenas.home.biodrone.xyz
-      path: /mnt/pool/k8s-homelab
+      path: /mnt/tank/k8s-homelab
     storageClass:
       name: nfs-truenas
       defaultClass: false
