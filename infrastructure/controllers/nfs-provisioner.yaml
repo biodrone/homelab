@@ -39,11 +39,11 @@ spec:
       requests:
         cpu: 50m
         memory: 64Mi
-    # Run as root to have permissions to create directories on NFS share
+    # Run as TrueNAS "josh" user (UID/GID 3000:3000) to have permissions to create directories on NFS share
     podSecurityContext:
-      runAsUser: 0
-      runAsGroup: 0
-      fsGroup: 0
+      runAsUser: 3000
+      runAsGroup: 3000
+      fsGroup: 3000
     # Prefer node1 (control plane) for better API server connectivity
     # Using preferredDuringScheduling so it can fallback if node1 is unavailable
     affinity:
