@@ -22,7 +22,7 @@ spec:
   chart:
     spec:
       chart: tailscale-operator
-      version: "~1.82.0"
+      version: "~1.90.0"
       sourceRef:
         kind: HelmRepository
         name: tailscale
