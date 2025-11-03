@@ -35,7 +35,8 @@ spec:
     # Enable API server proxy to expose Kubernetes control plane over Tailscale
     # auth mode uses Tailscale identity impersonation for RBAC
     # Requires ACL configuration with kubernetes capability grants
+    # Using true (boolean) instead of "auth" string since operator expects APISERVER_PROXY="true"
     apiServerProxyConfig:
-      mode: auth
+      mode: true
   # Helm Chart auto mounts the secret named tailscale-oauth in the tailscale namespace
   # https://github.com/tailscale/tailscale/blob/main/cmd/k8s-operator/deploy/chart/templates/deployment.yaml
