@@ -1,0 +1,33 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: recipes-ingressroute
+  namespace: recipes
+  annotations:
+    external-dns.alpha.kubernetes.io/target: 10.0.10.21
+    kubernetes.io/ingress.class: traefik
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    # Route static files to nginx
+    - match: Host(`recipes.lab.biodrone.xyz`) && PathPrefix(`/static`)
+      kind: Rule
+      services:
+        - name: recipes-svc
+          port: 80
+    # Route media files to nginx
+    - match: Host(`recipes.lab.biodrone.xyz`) && PathPrefix(`/media`)
+      kind: Rule
+      services:
+        - name: recipes-svc
+          port: 80
+    # Route everything else to gunicorn
+    - match: Host(`recipes.lab.biodrone.xyz`)
+      kind: Rule
+      services:
+        - name: recipes-svc
+          port: 8080
+  tls:
+    secretName: recipes-certificate-production
+

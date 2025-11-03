@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: recipes-certificate-production
+  namespace: recipes
+spec:
+  secretName: recipes-certificate-production
+  issuerRef:
+    name: cloudflare-clusterissuer-production
+    kind: ClusterIssuer
+  commonName: recipes.lab.biodrone.xyz
+  dnsNames:
+    - recipes.lab.biodrone.xyz
+
