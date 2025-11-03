@@ -31,5 +31,10 @@ spec:
   install:
     remediation:
       retries: 3
+  values:
+    # Enable API server proxy to expose Kubernetes control plane over Tailscale
+    # auth mode impersonates requests using the sender's tailnet identity for RBAC
+    apiServerProxyConfig:
+      mode: auth
   # Helm Chart auto mounts the secret named tailscale-oauth in the tailscale namespace
   # https://github.com/tailscale/tailscale/blob/main/cmd/k8s-operator/deploy/chart/templates/deployment.yaml
