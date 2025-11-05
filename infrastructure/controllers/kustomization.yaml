@@ -6,3 +6,4 @@ resources:
   - tailscale.yaml
   - external-dns-pihole.yaml
   - nfs-provisioner.yaml
+  - cloudnative-pg.yaml
