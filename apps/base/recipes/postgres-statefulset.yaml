@@ -17,19 +17,6 @@ spec:
       serviceAccountName: recipes
       securityContext:
         fsGroup: 999
-      initContainers:
-        - name: init-chmod-data
-          image: postgres:18
-          command: ['sh', '-c']
-          args:
-            - |
-              # Ensure the PostgreSQL directory has correct ownership
-              chown -R 999:999 /var/lib/postgresql
-          securityContext:
-            runAsUser: 0
-          volumeMounts:
-            - name: data
-              mountPath: /var/lib/postgresql
       containers:
         - name: postgresql
           image: postgres:18
