@@ -21,9 +21,8 @@ spec:
           command: ['sh', '-c']
           args:
             - |
+              # Ensure the data directory has correct ownership for PostgreSQL
               chown -R 999:999 /var/lib/postgresql/data
-              mkdir -p /var/lib/postgresql/data/pgdata
-              chown -R 999:999 /var/lib/postgresql/data/pgdata
           securityContext:
             runAsUser: 0
           volumeMounts:
