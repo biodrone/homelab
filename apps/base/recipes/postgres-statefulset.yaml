@@ -16,13 +16,13 @@ spec:
     spec:
       serviceAccountName: recipes
       securityContext:
-        fsGroup: 999
+        fsGroup: 3000
       containers:
         - name: postgresql
           image: postgres:18
           securityContext:
-            runAsUser: 999
-            runAsGroup: 999
+            runAsUser: 3000
+            runAsGroup: 3000
           env:
             - name: POSTGRES_DB
               value: recipes
