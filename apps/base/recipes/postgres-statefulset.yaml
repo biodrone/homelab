@@ -22,6 +22,8 @@ spec:
           args:
             - |
               chown -R 999:999 /var/lib/postgresql/data
+              mkdir -p /var/lib/postgresql/data/pgdata
+              chown -R 999:999 /var/lib/postgresql/data/pgdata
           securityContext:
             runAsUser: 0
           volumeMounts:
@@ -30,6 +32,10 @@ spec:
       containers:
         - name: postgresql
           image: postgres:18
+          securityContext:
+            runAsUser: 999
+            runAsGroup: 999
+            fsGroup: 999
           env:
             - name: POSTGRES_DB
               value: recipes
