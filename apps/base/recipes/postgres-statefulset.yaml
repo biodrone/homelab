@@ -17,40 +17,37 @@ spec:
       serviceAccountName: recipes
       initContainers:
         - name: init-chmod-data
-          image: bitnami/postgresql:15
+          image: postgres:15
           command: ['sh', '-c']
           args:
             - |
-              chown -R 1001:1001 /bitnami/postgresql
+              chown -R 999:999 /var/lib/postgresql/data
           securityContext:
             runAsUser: 0
           volumeMounts:
             - name: data
-              mountPath: /bitnami/postgresql
+              mountPath: /var/lib/postgresql/data
       containers:
         - name: postgresql
-          image: bitnami/postgresql:15
+          image: postgres:15
           env:
-            - name: POSTGRESQL_DATABASE
+            - name: POSTGRES_DB
               value: recipes
-            - name: POSTGRESQL_USERNAME
-              value: recipes
-            - name: POSTGRESQL_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: recipes-secrets
-                  key: postgresql-password
-            - name: POSTGRESQL_POSTGRES_PASSWORD
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: recipes-secrets
                   key: postgresql-postgres-password
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
           ports:
             - containerPort: 5432
               name: postgresql
           volumeMounts:
             - name: data
-              mountPath: /bitnami/postgresql
+              mountPath: /var/lib/postgresql/data
           resources:
             requests:
               cpu: 100m
