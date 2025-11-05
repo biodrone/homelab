@@ -25,6 +25,8 @@ spec:
             - |
               # Ensure the data directory has correct ownership for PostgreSQL
               chown -R 999:999 /var/lib/postgresql/data
+              # Remove pgdata subdirectory if it exists to allow fresh initialization
+              rm -rf /var/lib/postgresql/data/pgdata
           securityContext:
             runAsUser: 0
           volumeMounts:
@@ -46,8 +48,6 @@ spec:
                 secretKeyRef:
                   name: recipes-secrets
                   key: postgresql-postgres-password
-            - name: PGDATA
-              value: /var/lib/postgresql/data/pgdata
           ports:
             - containerPort: 5432
               name: postgresql
