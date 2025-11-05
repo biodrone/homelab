@@ -15,6 +15,8 @@ spec:
         app: recipes-postgres
     spec:
       serviceAccountName: recipes
+      securityContext:
+        fsGroup: 999
       initContainers:
         - name: init-chmod-data
           image: postgres:18
@@ -34,7 +36,6 @@ spec:
           securityContext:
             runAsUser: 999
             runAsGroup: 999
-            fsGroup: 999
           env:
             - name: POSTGRES_DB
               value: recipes
