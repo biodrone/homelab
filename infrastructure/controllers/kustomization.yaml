@@ -7,3 +7,4 @@ resources:
   - external-dns-pihole.yaml
   - nfs-provisioner.yaml
   - cloudnative-pg.yaml
+  - vault.yaml
